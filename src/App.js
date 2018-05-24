@@ -8,6 +8,8 @@ import './index';
 
 const { Content, Footer } = Layout;
 
+const SPLIT_BY = 'Answer:';
+
 class App extends Component {
   state = {
     data: {},
@@ -25,7 +27,8 @@ class App extends Component {
     const textRow = await res.text();
     const text = textRow.toLowerCase();
 
-    const questions = text.match(/.+(?=\nОтвет:\n)/gim).map(q => q.trim());
+    const questionsRegexp = new RegExp(`.+(?=\n${SPLIT_BY}\n)`, 'gim');
+    const questions = text.match(questionsRegexp).map(q => q.trim());
 
     let startFromIndex = 0;
     const data = questions.reduce((data, question, i) => {
@@ -33,9 +36,10 @@ class App extends Component {
       const questionIndex = text.indexOf(question, startFromIndex) + question.length;
       const nextQuestionIndex = text.indexOf(nextQuestion, startFromIndex);
 
+      const answerRegexp = new RegExp(`\n${SPLIT_BY}\n`, 'gi');
       data[question] = text
         .substring(questionIndex, nextQuestionIndex + 1 ? nextQuestionIndex : text.length)
-        .split(/\nОтвет:\n/gi)[1]
+        .split(answerRegexp)[1]
         .trim();
 
       return data;
