@@ -1,0 +1,61 @@
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.layout {
+  min-height: 100%;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 0 15px !important;
+}
+
+.content {
+  margin-top: 64px;
+  padding: 15px;
+}
+
+.answer {
+  border-radius: 4px;
+  padding: 24px;
+  background: #fff;
+  min-height: 280px;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.global-search {
+  width: 100%;
+}
+
+.global-search .ant-input:not(:last-child) {
+  padding-right: 60px !important;
+}
+
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
+  right: 0;
+}
+
+.global-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.global-search-item-count {
+  position: absolute;
+  right: 16px;
+}
+
+.loader {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
