@@ -8,7 +8,7 @@
 
 ## How to start
 
-Just add `data.text` file into `public` folder with the following format:
+Just add `data.txt` file into `public` folder with the following format:
 
 ```
 Single line for question
